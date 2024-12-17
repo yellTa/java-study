@@ -6,7 +6,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionTest {
+
+	private static long startTime = System.nanoTime();
+
 	public static void main(String[] args) {
+
 		Class<?> constClass = null;
 		try {
 			constClass = Class.forName("com.example.demoTest.reflection.ConstFile");
@@ -46,5 +50,7 @@ public class ReflectionTest {
 			throw new RuntimeException(e);
 		}
 
+		long endTime = System.nanoTime();
+		System.out.println("process time = " + (endTime - startTime) / 1_000_000 + " ms");
 	}
 }
