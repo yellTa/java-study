@@ -18,20 +18,20 @@ public class ReflectionTest {
 			constructor.setAccessible(true);
 
 			Object instance = constructor.newInstance();
-			System.out.println("instance created : "+ instance);
+			System.out.println("instance created : " + instance);
 
 			//private field 가져오기
 			Field staticField = constClass.getDeclaredField("IMCONST");
 			staticField.setAccessible(true);
-			String staticValue = (String) staticField.get(null);
-			System.out.println("staticValue : "+staticValue);
+			String staticValue = (String)staticField.get(null);
+			System.out.println("staticValue : " + staticValue);
 
 			//private 메서드 가져오기
 			Method privateMethod = constClass.getDeclaredMethod("hello");
 			privateMethod.setAccessible(true);
 
 			//메서드 실행해보기
-			String result = (String) privateMethod.invoke(instance);
+			String result = (String)privateMethod.invoke(instance);
 			System.out.println(result);
 
 		} catch (InstantiationException e) {
